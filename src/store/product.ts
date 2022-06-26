@@ -6,3 +6,10 @@ export const fetchProducts = readable<Product[]>(null, set => {
     .then(result => result.json())
     .then(result => set(result));
 });
+
+export const fetchProductById = (id: number) =>
+  readable<Product>(null, set => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then(result => result.json())
+      .then(result => set(result));
+  });
