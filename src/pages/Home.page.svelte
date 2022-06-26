@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {Link} from 'svelte-navigator';
   import {fetchProducts} from '../store/product';
 </script>
 
@@ -21,12 +22,15 @@
           </div>
         </div>
 
-        <button class="mt-auto bg-teal-500 text-white py-4 rounded-b-lg">
+        <Link
+          to={`/products/${product.id}`}
+          class="mt-auto bg-teal-500 text-white py-4 rounded-b-lg text-center"
+        >
           ADD TO CART
-        </button>
+        </Link>
       </div>
     {/each}
   </div>
 {:else}
-  loading
+  loading ...
 {/if}
